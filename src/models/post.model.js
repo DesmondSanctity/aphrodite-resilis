@@ -3,38 +3,29 @@ import db from "../database/connect.js";
 
 const { DataTypes } = Sequelize;
 
-const Users = db.define('users', {
-    userId: {
+const Posts = db.define('posts', {
+    postId: {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
         primaryKey: true,
         allowNull: false
     },
-    name: {
+    title: {
         type: DataTypes.STRING,
         allowNull: true,
     },
-    email: {
+    description: {
         type: DataTypes.STRING,
         allowNull: false,
     },
-    phone: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
-    password: {
-        type: DataTypes.STRING,
+    body: {
+        type: DataTypes.TEXT,
         allowNull: false,
     },
 
 }, {
     freezeTableName: true,
-    scopes: {
-        withoutSensitiveInfo: {
-            attributes: { exclude: ['password'] }
-        }
-    }
 });
 
 
-export default Users;
+export default Posts;

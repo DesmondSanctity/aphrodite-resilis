@@ -1,5 +1,27 @@
 import db from "../database/connect.js";
 import Users from "./user.model.js";
+import Posts from "./post.model.js";
+import Comments from "./comment.model.js";
+
+// User and Post Association
+Users.hasMany(Posts, {
+  foreignKey: "userId",
+  onDelete: "SET NULL",
+});
+Posts.belongsTo(Users, {
+  foreignKey: "userId",
+  onDelete: "SET NULL",
+});
+
+// Post and Comment Association
+Posts.hasMany(Comments, {
+  foreignKey: "postId",
+  onDelete: "SET NULL",
+});
+Comments.belongsTo(Posts, {
+  foreignKey: "postId",
+  onDelete: "SET NULL",
+});
 
 try {
   await db
@@ -15,4 +37,4 @@ try {
   console.log("Unable to connect to the database due to: ", error);
 }
 
-export { Users };
+export { Users, Posts };
