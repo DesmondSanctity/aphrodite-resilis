@@ -41,7 +41,8 @@ export const getPosts = async (req, res) => {
         },
         {
           model: Comments,
-          attributes: ["id", "body", "createdAt"],
+          required: false,
+          attributes: ["commentId", "body", "createdAt"],
           include: [
             {
               model: Users,
@@ -85,7 +86,8 @@ export const getUserPosts = async (req, res) => {
         },
         {
           model: Comments,
-          attributes: ["id", "body", "createdAt"],
+          required: false,
+          attributes: ["commentId", "body", "createdAt"],
           include: [
             {
               model: Users,
@@ -132,7 +134,8 @@ export const getPost = async (req, res) => {
           },
           {
             model: Comments,
-            attributes: ["id", "body", "createdAt"],
+            required: false,
+            attributes: ["commentId", "body", "createdAt"],
             include: [
               {
                 model: Users,
