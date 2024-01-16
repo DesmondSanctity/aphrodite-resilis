@@ -6,6 +6,8 @@ import { AppError } from "./src/utils/responseHandler.js";
 import swaggerDocs from "./swagger.js";
 import userRouter from "./src/routes/users.js";
 import authRouter from "./src/routes/auth.js";
+import postRouter from "./src/routes/posts.js";
+import commentRouter from "./src/routes/comments.js";
 import "./src/models/index.js";
 
 const app = express();
@@ -42,12 +44,20 @@ app.use(errorHandler);
 swaggerDocs(app, port);
 
 /** HTTP GET Request */
+app.use("*", (req, res) => {
+  res.status(404).send("Oops! Looks like this route does not exist");
+});
+
 app.get("/", (req, res) => {
   res.status(201).json("Home GET Request");
 });
 
+
+
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/auth", authRouter);
+app.use("/api/v1/posts", postRouter);
+app.use("/api/v1/comments", commentRouter);
 
 app.listen(port, () => {
   console.log(`

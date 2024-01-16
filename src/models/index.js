@@ -25,7 +25,8 @@ Comments.belongsTo(Posts, {
 
 try {
   await db
-    .sync({ alter: true })
+    // .sync({ alter: true })
+    .sync()
     .then(() => {
       console.log("Database synced");
       console.log("Database connection has been established successfully.");

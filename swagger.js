@@ -8,16 +8,16 @@ const options = {
       title: 'Aprodite Resilis API',
       description: "A simple CRUD API services design to demo integration with Resilis to optimize your APIs for global low-latency with no code and reduce infrastructure expenses.",
       contact: {
-        name: "Desmond",
+        name: "aprodite-resilis",
         email: "desmond.obisi.g20@gmail.com",
-        url: "https://github.com/DesmondSanctity/twilio-log-alert",
+        url: "https://github.com/DesmondSanctity/aphrodite-resilis",
       },
       version: '1.0.0',
     },
     servers: [
       {
-        url: "http://localhost:5000/",
-        description: "Local server"
+        url: "https://aphrodite-resilis.onrender.com/",
+        description: "Live server"
       }
     ],
     components: {
