@@ -23,6 +23,16 @@ Comments.belongsTo(Posts, {
   onDelete: "SET NULL",
 });
 
+// User and Comment Association
+Users.hasMany(Comments, {
+  foreignKey: "userId",
+  onDelete: "SET NULL",
+});
+Comments.belongsTo(Users, {
+  foreignKey: "userId",
+  onDelete: "SET NULL",
+});
+
 try {
   await db
     // .sync({ alter: true })
