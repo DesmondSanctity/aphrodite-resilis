@@ -37,4 +37,4 @@ try {
   console.log("Unable to connect to the database due to: ", error);
 }
 
-export { Users, Posts };
+export { Users, Posts, Comments };

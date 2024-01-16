@@ -5,8 +5,8 @@ const options = {
   definition: {
     openapi: '3.0.0',
     info: {
-      title: 'Twilio Log Alert API',
-      description: "A monitoring and alert tool for Node.js API built with Winston and Twilio WhatsApp API",
+      title: 'Aprodite Resilis API',
+      description: "A simple CRUD API services design to demo integration with Resilis to optimize your APIs for global low-latency with no code and reduce infrastructure expenses.",
       contact: {
         name: "Desmond",
         email: "desmond.obisi.g20@gmail.com",
