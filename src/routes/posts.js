@@ -23,7 +23,7 @@ const postRouter = Router();
  *              - title
  *              - description
  *              - body
- *              - userId
+ *              - author
  *            properties:
  *              title:
  *                type: string
@@ -34,7 +34,7 @@ const postRouter = Router();
  *              body:
  *                type: string
  *                default: ''
- *              userId:
+ *              author:
  *                type: string
  *                default: ''
  *     responses:

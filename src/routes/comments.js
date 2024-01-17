@@ -21,16 +21,16 @@ const commentRouter = Router();
  *            type: object
  *            required:
  *              - body
- *              - postId
- *              - userId
+ *              - post
+ *              - author
  *            properties:
  *              body:
  *                type: string
  *                default: this is a new comment
- *              postId:
+ *              post:
  *                type: string
  *                default: ''
- *              userId:
+ *              author:
  *                type: string
  *                default: ''
  *     responses:
