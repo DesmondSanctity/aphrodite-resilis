@@ -13,3 +13,6 @@ DB_URL=<your-db-url>
 
 3. Install dependencies using `npm install`.
 4. Run the project using `npm start`.
+
+
+The guides to optimize this API with [Resilis](https://resilis.io) either as an Open API specification or Postman collection can be found [here](https://resilis.io/docs/category/guides)
