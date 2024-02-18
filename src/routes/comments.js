@@ -95,5 +95,69 @@ commentRouter.route("/:postId").get(commentController.getAllByPost);
  */
 commentRouter.route("/:id").get(commentController.getOne);
 
+/** PUT Methods */
+
+/**
+ * @openapi
+ * '/api/v1/comments/{id}':
+ *  put:
+ *     tags:
+ *     - Comment Controller
+ *     summary: Update a comment by ID
+ *     parameters:
+ *      - name: id
+ *        in: path
+ *        description: The comment ID
+ *        required: true
+ *     requestBody:
+ *      required: true
+ *      content:
+ *        application/json:
+ *           schema:
+ *            type: object
+ *            required:
+ *              - body
+ *            properties:
+ *              body:
+ *                type: string
+ *                default: this is an updated comment
+ *     responses:
+ *      200:
+ *        description: Fetched Successfully
+ *      400:
+ *        description: Bad Request
+ *      404:
+ *        description: Not Found
+ *      500:
+ *        description: Server Error
+ */
+commentRouter.route("/:id").get(commentController.updateOne);
+
+/** DELETE Methods */
+
+/**
+ * @openapi
+ * '/api/v1/comments/{id}':
+ *  delete:
+ *     tags:
+ *     - Comment Controller
+ *     summary: Delete a comment by ID
+ *     parameters:
+ *      - name: id
+ *        in: path
+ *        description: The comment ID
+ *        required: true
+ *     responses:
+ *      200:
+ *        description: Fetched Successfully
+ *      400:
+ *        description: Bad Request
+ *      404:
+ *        description: Not Found
+ *      500:
+ *        description: Server Error
+ */
+commentRouter.route("/:id").get(commentController.deleteOne);
+
 
 export default commentRouter;

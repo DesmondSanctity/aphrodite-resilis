@@ -165,3 +165,53 @@ export const getPost = async (req, res) => {
     });
   }
 };
+
+export const updatePost = async (req, res) => {
+ try {
+  if (req.params.id) {
+   const post = await Posts.update(req.body, {
+    where: {
+     id: req.params.id,
+    },
+   });
+   if (post) {
+    return post;
+    // new AppResponse('success', '...', { post }, 200).send(res);
+   } else {
+    throw new AppError('failed', '...', 400);
+   }
+  } else {
+   throw new AppError('failed', '...', 400);
+  }
+ } catch (error) {
+  res.status(400).json({
+   status: error.status,
+   message: error.message,
+  });
+ }
+};
+
+export const deletePost = async (req, res) => {
+ try {
+  if (req.params.id) {
+   const post = await Posts.destroy({
+    where: {
+     id: req.params.id,
+    },
+   });
+   if (post) {
+    return post;
+    // new AppResponse('success', '...', { post }, 200).send(res);
+   } else {
+    throw new AppError('failed', '...', 400);
+   }
+  } else {
+   throw new AppError('failed', '...', 400);
+  }
+ } catch (error) {
+  res.status(400).json({
+   status: error.status,
+   message: error.message,
+  });
+ }
+};

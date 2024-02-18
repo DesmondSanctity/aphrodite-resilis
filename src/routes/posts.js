@@ -1,6 +1,6 @@
-import { Router } from "express";
+import { Router } from 'express';
 
-import * as postController from "../controllers/postControllers.js";
+import * as postController from '../controllers/postControllers.js';
 
 const postRouter = Router();
 
@@ -47,7 +47,7 @@ const postRouter = Router();
  *      500:
  *        description: Server Error
  */
-postRouter.route('/').post(postController.create)
+postRouter.route('/').post(postController.create);
 
 /** GET Methods */
 
@@ -68,7 +68,7 @@ postRouter.route('/').post(postController.create)
  *      500:
  *        description: Server Error
  */
-postRouter.route("/").get(postController.getAll);
+postRouter.route('/').get(postController.getAll);
 
 /**
  * @openapi
@@ -92,7 +92,7 @@ postRouter.route("/").get(postController.getAll);
  *      500:
  *        description: Server Error
  */
-postRouter.route("/:userId").get(postController.getAllByUser);
+postRouter.route('/:userId').get(postController.getAllByUser);
 
 /**
  * @openapi
@@ -116,7 +116,78 @@ postRouter.route("/:userId").get(postController.getAllByUser);
  *      500:
  *        description: Server Error
  */
-postRouter.route("/:id").get(postController.getOne);
+postRouter.route('/:id').get(postController.getOne);
 
+/** PUT Methods */
+
+/**
+ * @openapi
+ * '/api/v1/posts/{id}':
+ *  put:
+ *     tags:
+ *     - Post Controller
+ *     summary: Update a post by ID
+ *     parameters:
+ *      - name: id
+ *        in: path
+ *        description: The post ID
+ *        required: true
+ *     requestBody:
+ *      required: true
+ *      content:
+ *        application/json:
+ *           schema:
+ *            type: object
+ *            required:
+ *              - title
+ *              - description
+ *              - body
+ *            properties:
+ *              title:
+ *                type: string
+ *                default: Updated Post
+ *              description:
+ *                type: string
+ *                default: this is an updated post for today
+ *              body:
+ *                type: string
+ *                default: ''
+ *     responses:
+ *      200:
+ *        description: Fetched Successfully
+ *      400:
+ *        description: Bad Request
+ *      404:
+ *        description: Not Found
+ *      500:
+ *        description: Server Error
+ */
+postRouter.route('/:id').get(postController.updateOne);
+
+/** DELETE Methods */
+
+/**
+ * @openapi
+ * '/api/v1/posts/{id}':
+ *  delete:
+ *     tags:
+ *     - Post Controller
+ *     summary: Delete a post by ID
+ *     parameters:
+ *      - name: id
+ *        in: path
+ *        description: The post ID
+ *        required: true
+ *     responses:
+ *      200:
+ *        description: Fetched Successfully
+ *      400:
+ *        description: Bad Request
+ *      404:
+ *        description: Not Found
+ *      500:
+ *        description: Server Error
+ */
+postRouter.route('/:id').get(postController.deleteOne);
 
 export default postRouter;

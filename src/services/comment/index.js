@@ -82,3 +82,53 @@ export const getComment = async (req, res) => {
     });
   }
 };
+
+export const updateComment = async (req, res) => {
+ try {
+  if (req.params.id) {
+   const comment = await Comments.update(req.body, {
+    where: {
+     id: req.params.id,
+    },
+   });
+   if (comment) {
+    return comment;
+    // new AppResponse('success', '...', { comment }, 200).send(res);
+   } else {
+    throw new AppError('failed', '...', 400);
+   }
+  } else {
+   throw new AppError('failed', '...', 400);
+  }
+ } catch (error) {
+  res.status(400).json({
+   status: error.status,
+   message: error.message,
+  });
+ }
+};
+
+export const deleteComment = async (req, res) => {
+ try {
+  if (req.params.id) {
+   const comment = await Comments.destroy({
+    where: {
+     id: req.params.id,
+    },
+   });
+   if (comment) {
+    return comment;
+    // new AppResponse('success', '...', { comment }, 200).send(res);
+   } else {
+    throw new AppError('failed', '...', 400);
+   }
+  } else {
+   throw new AppError('failed', '...', 400);
+  }
+ } catch (error) {
+  res.status(400).json({
+   status: error.status,
+   message: error.message,
+  });
+ }
+};

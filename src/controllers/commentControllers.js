@@ -1,7 +1,9 @@
 import {
   createComment,
+  deleteComment,
   getComment,
   getPostComments,
+  updateComment,
 } from "../services/comment/index.js";
 import { AppResponse } from "../utils/responseHandler.js";
 
@@ -60,4 +62,36 @@ export const getOne = async (req, res) => {
       message: error.message,
     });
   }
+};
+
+export const updateOne = async (req, res) => {
+ try {
+  const comment = await updateComment(req, res);
+
+  if (comment)
+   new AppResponse('success', 'Comment updated successfully', { comment }, 200).send(
+    res
+   );
+ } catch (error) {
+  res.status(400).json({
+   status: error.status,
+   message: error.message,
+  });
+ }
+};
+
+export const deleteOne = async (req, res) => {
+ try {
+  const comment = await deleteComment(req, res);
+
+  if (comment)
+   new AppResponse('success', 'Comment deleted successfully', { comment }, 200).send(
+    res
+   );
+ } catch (error) {
+  res.status(400).json({
+   status: error.status,
+   message: error.message,
+  });
+ }
 };
