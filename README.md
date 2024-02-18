@@ -1,7 +1,7 @@
 # aphrodite-resilis
-A simple CRUD API services design to demo integration with Resilis to optimize your APIs for global low-latency with no code and reduce infrastructure expenses.
+A simple CRUD API services design to demo integration with Resilis to optimize your APIs for global low latency with no code and reduce infrastructure expenses.
 
-### How to set up and run project
+### How to set up and run the project
 1. Clone the project using `git clone https://github.com/resilis/aphrodite-resilis.git`
 2. Create a `.env` file in the root of the project and add the following variables:
 ```bash
@@ -13,3 +13,6 @@ DB_URL=<your-db-url>
 
 3. Install dependencies using `npm install`.
 4. Run the project using `npm start`.
+
+
+The guides to optimize this API with [Resilis](https://resilis.io) either as an Open API specification or Postman collection can be found [here](https://resilis.io/docs/category/guides)
