@@ -35,12 +35,10 @@ export const signupUser = async (req, res) => {
       phone: phone,
     });
 
-    const newUser = await Users.scope("withoutSensitiveInfo").findByPk(
-      user.id
-    );
+    user.password = "******";
 
     // Create success response
-    return { user: newUser };
+    return { user: user };
     // new AppResponse("success", 'User created successfully', { user: newUser, token }, 201).send(res);
   } catch (error) {
     res.status(400).json({
@@ -75,7 +73,7 @@ export const loginUser = async (req, res) => {
       { expiresIn: jwtExpiresIn }
     );
 
-    user.password = null;
+    user.password = "******";
 
     return { user, token };
     // new AppResponse('success', 'User logged in successfully', { user, token }, 201).send(res);
